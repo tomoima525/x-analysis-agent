@@ -1,7 +1,8 @@
 import * as readline from "readline";
-import { prepareQuestion } from "./open-ai-service";
+import { prepareQuestion, runAnalysis } from "./open-ai-service";
 import * as dotenv from "dotenv";
 import inquirer from "inquirer";
+import { runResearch } from "./browser-service";
 
 dotenv.config();
 
@@ -33,6 +34,16 @@ async function main() {
       ", "
     )}`
   );
+
+  const tweets = await runResearch({ queries: selectedQueries });
+  const analysis = await runAnalysis({
+    question: answer,
+    tweets: tweets,
+  });
+  console.log("Analysis result: ", analysis);
+  console.log("Analysis complete!");
 }
 
-main().catch(console.error);
+main()
+  .catch(console.error)
+  .then(() => process.exit(0));

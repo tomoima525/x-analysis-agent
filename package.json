@@ -9,6 +9,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@browserbasehq/stagehand": "^1.10.0",
     "dotenv": "^16.4.7",
     "inquirer": "^12.3.2",
     "openai": "^4.79.1",

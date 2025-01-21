@@ -6,6 +6,10 @@ const searchQueries = z.object({
   queries: z.array(z.string()),
 });
 
+const analysisReport = z.object({
+  analysis: z.string(),
+});
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -26,4 +30,30 @@ export async function prepareQuestion(
 
   const queries = response.choices[0].message.parsed;
   return queries || { queries: [] };
+}
+
+export async function runAnalysis({
+  question,
+  tweets,
+}: {
+  question: string;
+  tweets: string[];
+}) {
+  const prompt = `Can you analyze if my hypothesis is correct by observing people's post on X(Twitter)? Respond with the language this hypothesis use.
+  
+  ### Hypothesis ###
+  ${question}
+  
+  ### Posts ###
+  ${tweets.join("\n")}
+  `;
+
+  const response = await openai.chat.completions.create({
+    model: "gpt-4o-mini",
+    messages: [
+      { role: "system", content: "You are a market researcher." },
+      { role: "user", content: prompt },
+    ],
+  });
+  return response.choices[0].message;
 }
