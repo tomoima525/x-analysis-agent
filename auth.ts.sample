@@ -1,0 +1,31 @@
+export const cookies = [
+  {
+    name: "auth_token",
+    value: "replace with your auth_token",
+    domain: ".x.com",
+    path: "/",
+    expires: 1737996835.631708,
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+  },
+  {
+    name: "lang",
+    value: "en",
+    domain: "x.com",
+    path: "/",
+    expires: -1,
+    httpOnly: false,
+    secure: false,
+    sameSite: "Lax",
+  },
+] as {
+  name: string;
+  value: string;
+  domain: string;
+  path: string;
+  expires: number;
+  httpOnly: boolean;
+  secure: boolean;
+  sameSite: "None" | "Lax";
+}[];
