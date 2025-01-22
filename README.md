@@ -17,6 +17,12 @@ https://github.com/user-attachments/assets/bf067cb1-4f2d-41a0-8673-fd6b479b961c
 bun install
 ```
 
+- Create `.env` file and add OPENAI_TOKEN
+
+```
+OPENAI_API_KEY=sk-xxxxxxx
+```
+
 - Copy `auth.ts.sample` file to `auth.ts` and fill in the required values. This is required to access X(Twitter) API.
 
 ```
