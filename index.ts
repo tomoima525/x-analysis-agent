@@ -40,7 +40,7 @@ async function main() {
     question: answer,
     tweets: tweets,
   });
-  console.log("Analysis result: ", analysis);
+  console.log("Analysis result:\n", analysis);
   console.log("Analysis complete!");
 }
 
