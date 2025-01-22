@@ -4,7 +4,7 @@ export const cookies = [
     value: "replace with your auth_token",
     domain: ".x.com",
     path: "/",
-    expires: 1737996835.631708,
+    expires: 1737996835.631708, // Change this to a future unix timestamp!!!
     httpOnly: true,
     secure: true,
     sameSite: "None",
