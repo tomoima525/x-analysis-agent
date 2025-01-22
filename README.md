@@ -3,6 +3,12 @@
 A tool to verify your hypothesis about what people think from analyzing X(Twitter) posts.
 
 
+
+https://github.com/user-attachments/assets/bf067cb1-4f2d-41a0-8673-fd6b479b961c
+
+
+
+
 ## Preparation
 
 - Install dependencies (using `bun`, but other package managers should work too):
