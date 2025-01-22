@@ -23,11 +23,12 @@ async function crawlX({
   await page.waitForTimeout(2000);
 
   // Scroll a couple of times to get enough content
-  // 10 scrolls => around 20 tweets
-  const scrollCount = 10;
+  // 4 scrolls => around 20 tweets
+  const scrollCount = 4;
   for (let i = 0; i < scrollCount; i++) {
-    await page.mouse.wheel(0, 10000 + 5000 * Math.random());
-
+    await page.evaluate(() => {
+      window.scrollBy(0, 5000 + 5000 * Math.random());
+    });
     // Wait for potential content to load
     await page.waitForTimeout(4000);
   }

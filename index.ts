@@ -16,6 +16,7 @@ async function main() {
     rl.question("What do you like to analyze on X? ", resolve);
   });
   console.log(`You chose to analyze: ${answer}`);
+  console.log(`Agent is preparing the queries for you...`);
   const r = await prepareQuestion(answer);
   const queries = r.queries;
   rl.close();
@@ -36,12 +37,12 @@ async function main() {
   );
 
   const tweets = await runResearch({ queries: selectedQueries });
+  console.log("Agent is analyzing the tweets...");
   const analysis = await runAnalysis({
     question: answer,
     tweets: tweets,
   });
   console.log("Analysis result:\n", analysis);
-  console.log("Analysis complete!");
 }
 
 main()
